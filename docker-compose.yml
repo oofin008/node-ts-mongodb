@@ -1,0 +1,7 @@
+services:
+  mongodatabase:
+    image: mongo:4.4.13
+    ports:
+      - "27017:27017"
+    volumes:
+      - "/testdata"

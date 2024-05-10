@@ -1,0 +1,27 @@
+{
+  "name": "ts-mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node ./server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.6.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/mongodb": "^4.0.7",
+    "inversify": "^6.0.2",
+    "reflect-metadata": "^0.2.2",
+    "ts-node": "^10.9.2"
+  }
+}
