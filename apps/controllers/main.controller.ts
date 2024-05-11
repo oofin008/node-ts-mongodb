@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Server } from '../../server';
+import { Singleton } from '../../server';
 import { quotes } from '../data/quotes';
 import axios from 'axios';
 
@@ -10,8 +10,8 @@ export default class MainController {
 
   public static async getAll(req: Request, res: Response) {
     try {
-      await Server.mongodb.connect();
-      const db = Server.mongodb.db('interview');
+      await Singleton.mongodb.connect();
+      const db = Singleton.mongodb.db('interview');
       const collection = db.collection('prices');
 
       const findResult = await collection.find();
@@ -30,14 +30,14 @@ export default class MainController {
         message: e,
       });
     } finally {
-      await Server.mongodb.close();
+      await Singleton.mongodb.close();
     }
   }
 
   public static async averagePrices(req: Request, res: Response) {
     try {
-      await Server.mongodb.connect();
-      const db = Server.mongodb.db('interview');
+      await Singleton.mongodb.connect();
+      const db = Singleton.mongodb.db('interview');
       const collection = db.collection('prices');
 
       const aggResult = await collection.aggregate([
@@ -66,14 +66,14 @@ export default class MainController {
         message: e,
       });
     } finally {
-      await Server.mongodb.close();
+      await Singleton.mongodb.close();
     }
   }
 
   public static async post(req: Request, res: Response) {
     try {
-      await Server.mongodb.connect();
-      const db = Server.mongodb.db('interview');
+      await Singleton.mongodb.connect();
+      const db = Singleton.mongodb.db('interview');
       const collection = db.collection('prices');
       const result = await collection.insertMany(quotes);
       res.status(200).json({
@@ -86,7 +86,7 @@ export default class MainController {
         message: e,
       });
     } finally {
-      await Server.mongodb.close();
+      await Singleton.mongodb.close();
     }
   }
 }

@@ -1,12 +1,12 @@
 import { Application, Request, Response } from "express";
-import { Server } from "../../server";
+import { Singleton } from "../../server";
 import MainController from "../controllers/main.controller";
 
 export default class MainRoute {
   public static init(){
-    Server.app.get('/ping', MainController.ping);
-    Server.app.get('/prices', MainController.getAll);
-    Server.app.get('/averagePrices', MainController.averagePrices);
-    Server.app.post('/seed', MainController.post);
+    Singleton.app.get('/ping', MainController.ping);
+    Singleton.app.get('/prices', MainController.getAll);
+    Singleton.app.get('/averagePrices', MainController.averagePrices);
+    Singleton.app.post('/seed', MainController.post);
   }
 }
