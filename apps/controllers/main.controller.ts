@@ -2,8 +2,16 @@ import { Request, Response } from 'express';
 import { Singleton } from '../../server';
 import { quotes } from '../data/quotes';
 import axios from 'axios';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 export default class MainController {
+
+  public static serveHtml(req: Request, res: Response) {
+    const _dirname = dirname(fileURLToPath(import.meta.url))
+    res.sendFile(join(__dirname, 'index.html'))
+  }
+
   public static ping(req: Request, res: Response) {
     res.send(`OK @ ${new Date()}`);
   }
