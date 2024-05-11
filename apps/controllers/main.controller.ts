@@ -7,10 +7,10 @@ import { fileURLToPath } from 'node:url';
 
 export default class MainController {
 
-  public static serveHtml(req: Request, res: Response) {
-    const _dirname = dirname(fileURLToPath(import.meta.url))
-    res.sendFile(join(__dirname, 'index.html'))
-  }
+  // public static serveHtml(req: Request, res: Response) {
+  //   const _dirname = dirname(fileURLToPath(import.meta.url))
+  //   res.sendFile(join(__dirname, 'index.html'))
+  // }
 
   public static ping(req: Request, res: Response) {
     res.send(`OK @ ${new Date()}`);
